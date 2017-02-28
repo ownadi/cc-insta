@@ -1,0 +1,13 @@
+AllCops:
+  TargetRubyVersion: 2.0
+
+  Exclude:
+    - 'db/**/*'
+    - 'log/**/*'
+    - 'tmp/**/*'
+
+Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
