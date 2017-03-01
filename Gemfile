@@ -16,6 +16,7 @@ gem 'bootstrap-sass', '~> 3.3'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'listen', '~> 3.0'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -23,4 +24,10 @@ group :development do
   gem 'bullet'
   gem 'spring'
   gem 'spring-watcher-listen'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'rails-controller-testing'
 end

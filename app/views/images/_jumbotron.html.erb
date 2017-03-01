@@ -1,0 +1,11 @@
+<% unless request.xhr? %>
+  <div class="jumbotron jumbotron-upload">
+    <h2><%= t('jumbotron.title') %></h2>
+    <p class="lead">
+      <label class="btn btn-primary btn-lg btn-upload">
+        <%= t('jumbotron.button') %>
+        <input type="file" style="display: none;">
+      </label>
+    </p>
+  </div>
+<% end %>

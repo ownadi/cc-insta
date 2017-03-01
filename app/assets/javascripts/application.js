@@ -31,3 +31,25 @@
 //= require bootstrap/tab
 //= require bootstrap/transition
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  $('.load-more > a').click(function(event) {
+    event.preventDefault();
+      $.get('/', function(data){
+        $('.load-more').remove();
+        $('.img-grid').after(data);
+      });
+  });
+
+  $('.btn-upload > input').change(function(event){
+    var file = event.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(output) {
+      console.log(output.target.result);
+    };
+
+    reader.readAsDataURL(file);
+  });
+});
+
