@@ -3,13 +3,13 @@
 <%= render 'jumbotron' %>
 
 <div class="row img-grid">
-  <% 12.times do %>
-    <%= render(partial: 'image') %>
-  <% end %>
+  <%= render @images %>
+</div>
 
-  <% unless request.xhr? %>
+<% unless request.xhr? %>
+  <div class="row">
     <div class="col-md-2 col-md-offset-5 col-xs-10 col-xs-offset-1 load-more">
       <a class="btn btn-primary btn-lg btn-block" href="#" role="button"><%= t('images.load_more') %></a>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

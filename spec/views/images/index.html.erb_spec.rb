@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe 'images/index.html.erb' do
+  before { assign(:images, []) }
+
   context 'xhr request' do
     before { controller.request.stub(:xhr?) { true } }
 

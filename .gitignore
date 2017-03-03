@@ -13,3 +13,5 @@
 /vendor/bundle
 /public/assets/*
 .env
+
+/public/uploads/*

@@ -13,10 +13,15 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'bootstrap-sass', '~> 3.3'
 
+gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-base64'
+gem 'mini_magick'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'listen', '~> 3.0'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -30,4 +35,6 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'rails-controller-testing'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end

@@ -2,9 +2,10 @@
   <div class="jumbotron jumbotron-upload">
     <h2><%= t('jumbotron.title') %></h2>
     <p class="lead">
-      <label class="btn btn-primary btn-lg btn-upload">
+      <%= image_tag 'loader.svg', class: 'loader-upload' %>
+      <label class="btn btn-primary btn-lg btn-upload" style="display: none;">
         <%= t('jumbotron.button') %>
-        <input type="file" style="display: none;">
+        <input type="file" id="upload-input" style="display: none;">
       </label>
     </p>
   </div>

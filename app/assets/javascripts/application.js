@@ -46,7 +46,7 @@ $(document).on('turbolinks:load', function(){
     var reader = new FileReader();
 
     reader.onload = function(output) {
-      console.log(output.target.result);
+      App.images.perform('upload', { file: output.target.result });
     };
 
     reader.readAsDataURL(file);
