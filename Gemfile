@@ -6,6 +6,7 @@ gem 'puma', '~> 3.0'
 gem 'rack-timeout', '~> 0.4'
 gem 'redis-rails', '~> 5.0.0.pre'
 gem 'sidekiq', '~> 4.2'
+gem 'kaminari'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -16,6 +17,8 @@ gem 'bootstrap-sass', '~> 3.3'
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
 gem 'mini_magick'
+
+gem 'rails-assets-isInViewport', source: 'https://rails-assets.org'
 
 group :development, :test do
   gem 'byebug', platform: :mri

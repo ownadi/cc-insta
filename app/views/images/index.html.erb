@@ -1,15 +1,16 @@
 <%= title t('images.title') %>
+<%= rel_next_prev_link_tags @images %>
 
 <%= render 'jumbotron' %>
 
-<div class="row img-grid">
+<div class="row img-grid" data-page="<%= @page %>">
   <%= render @images %>
 </div>
 
-<% unless request.xhr? %>
+<% if !request.xhr? && !@images.last_page? %>
   <div class="row">
     <div class="col-md-2 col-md-offset-5 col-xs-10 col-xs-offset-1 load-more">
-      <a class="btn btn-primary btn-lg btn-block" href="#" role="button"><%= t('images.load_more') %></a>
+      <a class="btn btn-primary btn-lg btn-block btn-load-more" href="#" role="button"><%= t('images.load_more') %></a>
     </div>
   </div>
 <% end %>

@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 describe 'images/index.html.erb' do
-  before { assign(:images, []) }
+  before do
+    assign(:images, Image.all.page(1))
+  end
 
   context 'xhr request' do
-    before { controller.request.stub(:xhr?) { true } }
+    before { allow(controller.request).to receive(:xhr?).and_return(true) }
 
     it 'does not render load more button' do
       render

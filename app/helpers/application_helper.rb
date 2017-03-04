@@ -10,4 +10,14 @@ module ApplicationHelper
   def heading(page_heading)
     content_for(:heading) { page_heading }
   end
+
+  def total_pages_meta_tag
+    tag('meta', name: 'total_pages', content: @images.total_pages) if images_index?
+  end
+
+  private
+
+  def images_index?
+    controller_name == 'images' && action_name == 'index'
+  end
 end

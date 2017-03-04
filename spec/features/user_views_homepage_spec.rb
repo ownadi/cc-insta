@@ -2,25 +2,24 @@ require 'rails_helper'
 
 feature 'User views homepage' do
   scenario 'they see existing images' do
-    create :image
+    create_list :image, 2
 
     visit root_path
 
     within '.img-grid' do
-      expect(page).to have_selector('div img', count: 1)
+      expect(page).to have_selector('div img', count: 2)
     end
   end
 
-  scenario 'they upload new image', js: true do
+  scenario 'they scroll to new page', js: true do
+    create_list(:image, 13)
+
     visit root_path
 
-    expect(page).to have_selector('.btn-upload', visible: true)
-    execute_script "$('#upload-input').show()"
+    # click_on 'btn-load-more'
+    execute_script("$('.btn-load-more').click()")
 
-    attach_file 'upload-input', Rails.root.join('spec/fixtures/lena.jpg')
-
-    within '.img-grid' do
-      expect(page).to have_selector('div img', count: 1)
-    end
+    execute_script('window.scrollBy(0, 100000)')
+    expect(page).to have_selector('.img-grid[data-page="2"]')
   end
 end
