@@ -8,5 +8,7 @@ en:
     load_more: "Load more"
     upload_modal:
       title: "Upload image"
+  image:
+    destroy_button: "Delete"
   footer:
     copyright: "%{year} CCInsta - All rights reserved"

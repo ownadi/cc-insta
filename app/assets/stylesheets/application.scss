@@ -157,3 +157,13 @@ footer {
     text-decoration: none;
   }
 }
+
+.image-container {
+  padding-bottom: 30px;
+}
+
+@media only screen and (max-width: $screen-sm) {
+  .image-container {
+    padding-bottom: 15px;
+  }
+}
