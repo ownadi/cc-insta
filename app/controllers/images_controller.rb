@@ -4,4 +4,17 @@ class ImagesController < ApplicationController
     @images = Image.order(created_at: :desc).page(@page)
     render :index, layout: !request.xhr?
   end
+
+  def show
+    @image = Image.find(params[:id])
+  end
+
+  def destroy
+    Images::Destroy.new(params).call
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { head 204 }
+    end
+  end
 end

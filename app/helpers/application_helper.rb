@@ -15,6 +15,12 @@ module ApplicationHelper
     tag('meta', name: 'total_pages', content: @images.total_pages) if images_index?
   end
 
+  def link_to_if(*args, &block)
+    args.insert 1, capture(&block) if block_given?
+
+    super(*args)
+  end
+
   private
 
   def images_index?

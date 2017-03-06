@@ -13,13 +13,13 @@ App.images = App.cable.subscriptions.create({ channel: 'ImagesChannel' }, {
         $('.img-grid').prepend(data.contents);
         break;
       case 'update_image':
-        var oldImage = $('.img-entry[data-id=' + data.id + ']').parent();
+        var oldImage = $('.img-entry[data-id=' + data.id + ']').closest('.image-entry');
         oldImage.hide();
         oldImage.after(data.contents);
         oldImage.remove();
         break;
       case 'delete_image':
-        var image = $('.img-entry[data-id=' + data.id + ']').parent();
+        var image = $('.img-entry[data-id=' + data.id + ']').closest('.image-entry');
         image.remove();
       default:
         return;
