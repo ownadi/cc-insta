@@ -1,12 +1,14 @@
-$(document).on('turbolinks:load', function() {
+$(document).on('ready', function() {
   App.images = App.cable.subscriptions.create({ channel: 'ImagesChannel' }, {
     connected: function() {
       $('.loader-upload').hide();
       $('.btn-upload').show();
+      window.cableConnected = true
     },
     disconnected: function(){
       $('.btn-upload').hide();
       $('.loader-upload').show();
+      window.cableConnected = false
     },
     received: function(data) {
       switch(data.event) {

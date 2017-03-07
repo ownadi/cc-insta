@@ -81,6 +81,14 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+$(document).on('turbolinks:render', function() {
+  $(window).unbind('scroll');
+  if(cableConnected) {
+    $('.loader-upload').hide();
+    $('.btn-upload').show();
+  };
+});
+
 function qs(key) {
   key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&");
   var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
