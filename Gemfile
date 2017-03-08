@@ -7,6 +7,7 @@ gem 'rack-timeout', '~> 0.4'
 gem 'redis-rails', '~> 5.0.0.pre'
 gem 'sidekiq', '~> 4.2'
 gem 'kaminari'
+gem 'google-cloud-vision'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

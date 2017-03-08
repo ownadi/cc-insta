@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   def index
     @page = params[:page] || 1
-    @images = Image.order(created_at: :desc).page(@page)
+    @images = RecentImagesQuery.new(params['hashtag'], @page).call
     render :index, layout: !request.xhr?
   end
 

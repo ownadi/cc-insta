@@ -4,6 +4,6 @@ class ImagesChannel < ApplicationCable::Channel
   end
 
   def upload(data)
-    Images::Create.new(data).call
+    CreateImageJob.perform_later(data)
   end
 end

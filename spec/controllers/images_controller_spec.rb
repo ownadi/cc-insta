@@ -19,6 +19,18 @@ describe ImagesController do
         expect(response).to render_template('images/index')
       end
     end
+
+    it 'fetches most recent images' do
+      expect_any_instance_of(RecentImagesQuery).to receive(:call)
+
+      get :index
+    end
+
+    it 'fetches most recent images tagged with given hashtag' do
+      expect(RecentImagesQuery).to receive(:new).with('foo', 1)
+
+      get :index, hashtag: 'foo', page: 1
+    end
   end
 
   describe '#destroy' do

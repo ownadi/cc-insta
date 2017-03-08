@@ -6,15 +6,17 @@ module Images
 
     def call
       img = Image.create
-
       ImagesChannel.broadcast_to('images', event: :new_image, contents: ApplicationController.render(img))
 
       img.file = @params['file'] || @params[:file]
       if img.save && img.reload.file.present?
+        Images::Annotate.new(img).call
         ImagesChannel.broadcast_to('images', event: :update_image, id: img.id, contents: ApplicationController.render(img))
       else
         Images::Destroy.new(id: img.id).call
       end
+    rescue
+      Images::Destroy.new(id: img.id).call
     end
   end
 end
