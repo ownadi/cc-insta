@@ -1,6 +1,6 @@
 <div class="col-xs-4 image-entry">
   <%= link_to_if image.file.present?, image do %>
-    <%= image_tag image.file.thumb.url, class: 'img-responsive img-entry', data: { id: image.id } %>
+    <%= image_tag image.file.thumb.url, class: class_string('img-responsive': true, 'img-entry': true, nsfw: image.nsfw), data: { id: image.id } %>
   <% end %>
   <%= link_to '', image_path(image, format: :json), class: 'delete-hover', method: :delete, remote: true %>
 </div>

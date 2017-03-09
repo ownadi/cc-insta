@@ -6,4 +6,8 @@ shared_examples_for :vision_adapter do
   specify '#faces' do
     expect(described_class.instance_method(:faces).arity).to eq(0)
   end
+
+  specify '#safe_search' do
+    expect(described_class.instance_method(:safe_search).arity).to eq(0)
+  end
 end

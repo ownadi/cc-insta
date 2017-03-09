@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308141642) do
+ActiveRecord::Schema.define(version: 20170309102204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170308141642) do
     t.datetime "updated_at",                 null: false
     t.text     "tags",       default: [],                 array: true
     t.json     "faces",      default: {}
+    t.boolean  "nsfw",       default: false
     t.index ["tags"], name: "index_images_on_tags", using: :gin
   end
 

@@ -18,6 +18,11 @@ module Vision
       annotation.labels.map(&:description)
     end
 
+    def safe_search
+      ss = annotation.safe_search
+      [ss.adult?, ss.spoof?, ss.medical?, ss.violence?].none?
+    end
+
     private
 
     def client
@@ -25,7 +30,7 @@ module Vision
     end
 
     def annotation
-      @annotation ||= client.annotate @image, faces: true, labels: true
+      @annotation ||= client.annotate @image, faces: true, labels: true, safe_search: true
     end
   end
 end

@@ -186,5 +186,12 @@ footer {
   &:hover {
     opacity: 0.5;
   }
+}
 
+.nsfw {
+  filter: blur(20px);
+
+  &:hover {
+    filter: none;
+  }
 }

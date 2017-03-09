@@ -26,5 +26,14 @@ describe Images::Annotate do
       expected_faces = [[{ 'x' => 300, 'y' => 177 }, { 'x' => 451, 'y' => 177 }, { 'x' => 451, 'y' => 329 }, { 'x' => 300, 'y' => 329 }]]
       expect(img.faces).to eq(expected_faces)
     end
+
+    it 'saves nsfw status' do
+      expect_any_instance_of(Vision::Fake).to receive(:safe_search).and_return(false)
+      img = build :image
+
+      Images::Annotate.new(img).call
+
+      expect(img.nsfw).to be(true)
+    end
   end
 end

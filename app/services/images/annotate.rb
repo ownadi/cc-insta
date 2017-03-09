@@ -8,8 +8,8 @@ module Images
       vision = Vision.default_adapter.new(@image.file.path)
       tags = vision.labels.map { |label| label.gsub(' ', '').downcase }
       faces = vision.faces
-      @image.update_attributes(faces: faces, tags: tags)
-      @image.save
+      safe_search = vision.safe_search
+      @image.update_attributes(faces: faces, tags: tags, nsfw: !safe_search)
     end
   end
 end

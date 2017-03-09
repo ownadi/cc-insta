@@ -20,4 +20,14 @@ describe 'images/_image.html.erb' do
       expect(rendered).to have_selector("a[href='#{image_path(img)}'] > img")
     end
   end
+
+  context 'with #nsfw image' do
+    let(:img) { build_stubbed(:image, :nsfw) }
+
+    it 'marks image as nsfw' do
+      render partial: 'images/image.html.erb', locals: { image: img }
+
+      expect(rendered).to have_selector('img.nsfw')
+    end
+  end
 end
