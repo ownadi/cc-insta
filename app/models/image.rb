@@ -3,7 +3,7 @@ class Image < ApplicationRecord
 
   paginates_per 12
 
-  mount_base64_uploader :file, FileUploader, file_name: -> { 'xdd' }
+  mount_base64_uploader :file, FileUploader, file_name: -> { 'image' }
 
   def svg_faces
     faces.map do |face|
