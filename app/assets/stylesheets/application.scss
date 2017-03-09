@@ -172,3 +172,19 @@ footer {
   margin-bottom: 15px;
 }
 
+.face-annotations {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+
+  rect {
+    stroke: #e5e5e5;
+    stroke-width: 3px;
+    fill: none;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+}

@@ -45,6 +45,15 @@ $(document).on('turbolinks:load', function() {
     reader.readAsDataURL(file);
   });
 
+  var faceAnnotations = $('.face-annotations');
+  if(faceAnnotations.length) {
+    $('.image-container').imagesLoaded(function() {
+      var annotatedImage = $('.row .img-responsive');
+      faceAnnotations.height(annotatedImage.height());
+      faceAnnotations.width(annotatedImage.width());
+    });
+  };
+
   $('.load-more > a').click(function(clickEvent) {
     clickEvent.preventDefault();
     $(clickEvent.target).remove();

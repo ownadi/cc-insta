@@ -27,7 +27,7 @@ describe ImagesController do
     end
 
     it 'fetches most recent images tagged with given hashtag' do
-      expect(RecentImagesQuery).to receive(:new).with('foo', 1)
+      expect(RecentImagesQuery).to receive(:new).with('foo', '1').and_call_original
 
       get :index, hashtag: 'foo', page: 1
     end

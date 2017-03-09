@@ -11,7 +11,7 @@ module Vision
     def faces
       annotation.faces.map do |face_annotation|
         JSON.parse face_annotation.grpc.fd_bounding_poly.vertices.to_json
-      end.to_json
+      end
     end
 
     def labels

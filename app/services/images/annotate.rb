@@ -7,8 +7,8 @@ module Images
     def call
       vision = Vision.default_adapter.new(@image.file.path)
       tags = vision.labels.map { |label| label.gsub(' ', '').downcase }
-
-      @image.tags = tags
+      faces = vision.faces
+      @image.update_attributes(faces: faces, tags: tags)
       @image.save
     end
   end

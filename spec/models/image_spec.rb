@@ -11,4 +11,13 @@ describe Image do
       expect(Image.tagged_with('bar').count).to eq(1)
     end
   end
+
+  describe '#svg_faces' do
+    it 'returns valid svg' do
+      img = build_stubbed :image, :with_faces
+
+      expected = "<rect x='300' y='177' width='151' height='152' />"
+      expect(img.svg_faces).to eq(expected)
+    end
+  end
 end

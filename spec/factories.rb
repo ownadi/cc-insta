@@ -4,5 +4,8 @@ FactoryGirl.define do
     trait :invalid do
       file 'xxx'
     end
+    trait :with_faces do
+      faces [[{"x"=>300, "y"=>177}, {"x"=>451, "y"=>177}, {"x"=>451, "y"=>329}, {"x"=>300, "y"=>329}]]
+    end
   end
 end
