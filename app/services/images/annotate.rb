@@ -5,7 +5,7 @@ module Images
     end
 
     def call
-      vision = Vision.default_adapter.new(@image.file.path)
+      vision = Vision.default_adapter.new(@image.file.limited.path)
       tags = vision.labels.map { |label| label.gsub(' ', '').downcase }
       faces = vision.faces
       safe_search = vision.safe_search

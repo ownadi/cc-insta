@@ -6,7 +6,7 @@
           <%= @image.svg_faces.html_safe %>
         </svg>
       <% end %>
-      <%= image_tag @image.file.url, class: 'img-responsive img-show'%>
+      <%= image_tag @image.file.limited.url, class: 'img-responsive img-show'%>
     </div>
   </div>
   <div class="col-xs-10 col-md-3 col-xs-offset-1 col-md-offset-0">
