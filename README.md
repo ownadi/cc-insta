@@ -1,24 +1,26 @@
-# README
+# CCIinsta
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development
 
-Things you may want to cover:
+Clone the repo. Copy and fill `.env` file:
 
-* Ruby version
+    cp .env.example .env
 
-* System dependencies
+Run the application:
 
-* Configuration
+    docker-compose up --build
 
-* Database creation
+Create database:
 
-* Database initialization
+    docker-compose exec website rails db:create db:migrate
+    docker-compose exec website rails db:create db:migrate RAILS_ENV=test
 
-* How to run the test suite
+Ensure specs are green:
 
-* Services (job queues, cache servers, search engines, etc.)
+    docker-compose exec website rspec
 
-* Deployment instructions
+And you are ready to go :)
 
-* ...
+## Demo
+
+http://194.28.50.95:3000/
